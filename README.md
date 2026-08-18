@@ -1,20 +1,58 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🌍 Explore Mundo
 
-# Run and deploy your AI Studio app
+Aplicação web responsiva para explorar destinos, conhecer atrações e consultar avaliações de viajantes.
 
-This contains everything you need to run your app locally.
+O projeto foi desenvolvido como trabalho prático da disciplina **DGT2812 — Desenvolvimento de Aplicativos Móveis**, da Universidade Estácio, em 2026. A implementação atual utiliza React e TypeScript.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1sXhRbbH7PbNLBG1-Xdut4oGO4n4hO6MP
+## Funcionalidades
 
-## Run Locally
+- apresentação responsiva de destinos nacionais e internacionais;
+- detalhes, descrições e avaliações de cada local;
+- busca rápida por nome ou localização;
+- navegação adaptada para dispositivos móveis;
+- formulário de solicitação de orçamento.
 
-**Prerequisites:**  Node.js
+## Tecnologias
 
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Como executar
+
+Pré-requisito: Node.js 18 ou superior.
+
+```bash
+git clone https://github.com/Morgana-Fstack/DGT2812-Desenvolvimento-de-Aplicativos-M-veis-com-Flutter.git
+cd DGT2812-Desenvolvimento-de-Aplicativos-M-veis-com-Flutter
+npm install
+npm run dev
+```
+
+A aplicação estará disponível em `http://localhost:3000`.
+
+## Validação
+
+```bash
+npm run typecheck
+npm run build
+```
+
+## Estrutura principal
+
+```text
+├── components/       # Componentes reutilizáveis e páginas
+├── App.tsx           # Navegação e composição da aplicação
+├── data.ts           # Conteúdo dos destinos
+├── index.tsx         # Ponto de entrada do React
+├── index.html        # Documento HTML base
+├── vite.config.ts    # Configuração do Vite
+└── tsconfig.json     # Configuração do TypeScript
+```
+
+## Autora
+
+**Morgana Petterle da Cunha**<br>
+Tecnóloga em Desenvolvimento Full Stack — Universidade Estácio<br>
+[LinkedIn](https://linkedin.com/in/morgana-petterle) · [GitHub](https://github.com/Morgana-Fstack)
