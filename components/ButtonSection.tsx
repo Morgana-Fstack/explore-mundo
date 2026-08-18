@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ActionButton from './ActionButton';
 import { CallIcon, RouteIcon, ShareIcon, QuoteIcon } from './Icons';
@@ -14,7 +13,11 @@ const ButtonSection: React.FC<ButtonSectionProps> = ({ onQuoteClick }) => {
         <ActionButton icon={<CallIcon />} label="CALL" />
         <ActionButton icon={<RouteIcon />} label="ROUTE" />
         <ActionButton icon={<ShareIcon />} label="SHARE" />
-        <ActionButton icon={<QuoteIcon />} label="ORÇAMENTO" onClick={onQuoteClick} />
+        <ActionButton
+          icon={<QuoteIcon />}
+          label="ORÇAMENTO"
+          onClick={onQuoteClick}
+        />
       </div>
     </div>
   );

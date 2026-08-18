@@ -14,19 +14,28 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
       </h2>
       <div className="space-y-6">
         {reviews.map((review, index) => (
-          <div key={index} className="flex items-start space-x-4 p-4 bg-stone-50 rounded-lg">
+          <div
+            key={index}
+            className="flex items-start space-x-4 p-4 bg-stone-50 rounded-lg"
+          >
             <div className="flex-shrink-0">
               <UserIcon />
             </div>
             <div className="flex-grow">
               <div className="flex items-center justify-between flex-wrap">
-                <h3 className="font-semibold text-stone-800 mr-2">{review.name}</h3>
+                <h3 className="font-semibold text-stone-800 mr-2">
+                  {review.name}
+                </h3>
                 <p className="text-sm text-stone-500">{review.date}</p>
               </div>
               <div className="flex items-center my-1">
-                {[...Array(5)].map((_, i) => (
-                  i < review.rating ? <YellowStarIcon key={i} /> : <EmptyStarIcon key={i} />
-                ))}
+                {[...Array(5)].map((_, i) =>
+                  i < review.rating ? (
+                    <YellowStarIcon key={i} />
+                  ) : (
+                    <EmptyStarIcon key={i} />
+                  ),
+                )}
               </div>
               <p className="text-stone-600 text-sm leading-relaxed">
                 {review.comment}
@@ -35,9 +44,11 @@ const ReviewSection: React.FC<ReviewSectionProps> = ({ reviews }) => {
           </div>
         ))}
       </div>
-      
+
       <div className="mt-8">
-        <h3 className="text-lg font-semibold text-stone-900 mb-3">Deixe sua avaliação</h3>
+        <h3 className="text-lg font-semibold text-stone-900 mb-3">
+          Deixe sua avaliação
+        </h3>
         <form>
           <textarea
             rows={4}

@@ -15,7 +15,8 @@ type View = 'landing' | 'travelIntro' | 'destinations' | 'about' | 'contact';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('landing');
-  const [selectedDestinationId, setSelectedDestinationId] = useState<string>('london');
+  const [selectedDestinationId, setSelectedDestinationId] =
+    useState<string>('london');
 
   const handleSelectDestination = (id: string) => {
     setSelectedDestinationId(id);
@@ -25,12 +26,16 @@ const App: React.FC = () => {
   if (currentView === 'landing') {
     return <LandingPage onNavigate={() => setCurrentView('travelIntro')} />;
   }
-  
-  const currentDestination = destinationsData.find(d => d.id === selectedDestinationId) || destinationsData[0];
+
+  const currentDestination =
+    destinationsData.find((d) => d.id === selectedDestinationId) ||
+    destinationsData[0];
 
   const renderContent = () => {
     if (currentView === 'travelIntro') {
-      return <TravelIntroPage onContinue={() => setCurrentView('destinations')} />;
+      return (
+        <TravelIntroPage onContinue={() => setCurrentView('destinations')} />
+      );
     }
     if (currentView === 'about') {
       return <AboutPage />;
@@ -38,14 +43,20 @@ const App: React.FC = () => {
     if (currentView === 'contact') {
       return <ContactPage />;
     }
-    
+
     // Default to destinations view
     return (
       <main className="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
         <div className="bg-white shadow-2xl rounded-lg overflow-hidden">
-          <DestinationImage imageUrl={currentDestination.image} altText={currentDestination.location} />
+          <DestinationImage
+            imageUrl={currentDestination.image}
+            altText={currentDestination.location}
+          />
           <div className="p-6 md:p-8">
-            <TitleSection title={currentDestination.name} location={currentDestination.location} />
+            <TitleSection
+              title={currentDestination.name}
+              location={currentDestination.location}
+            />
             <ButtonSection onQuoteClick={() => setCurrentView('contact')} />
             <TextSection description={currentDestination.description} />
             <ReviewSection reviews={currentDestination.reviews} />
@@ -57,7 +68,7 @@ const App: React.FC = () => {
 
   return (
     <div className="bg-stone-100 text-stone-800 min-h-screen font-sans antialiased">
-      <Header 
+      <Header
         destinations={destinationsData}
         onSelectDestination={handleSelectDestination}
         onShowAbout={() => setCurrentView('about')}

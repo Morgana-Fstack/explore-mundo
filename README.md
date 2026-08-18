@@ -39,6 +39,8 @@ Open `http://localhost:3000`.
 ### Validation
 
 ```bash
+npm run lint
+npm run format:check
 npm run typecheck
 npm run build
 ```
@@ -82,6 +84,8 @@ Acesse `http://localhost:3000`.
 ### Validação
 
 ```bash
+npm run lint
+npm run format:check
 npm run typecheck
 npm run build
 ```

@@ -13,15 +13,11 @@ const TitleSection: React.FC<TitleSectionProps> = ({ title, location }) => {
         <h1 className="text-2xl md:text-3xl font-bold text-stone-900">
           {title}
         </h1>
-        <p className="text-md text-stone-500 mt-1">
-          {location}
-        </p>
+        <p className="text-md text-stone-500 mt-1">{location}</p>
       </div>
       <div className="flex items-center space-x-1 flex-shrink-0">
         <StarIcon />
-        <span className="text-lg font-semibold text-stone-700">
-          41
-        </span>
+        <span className="text-lg font-semibold text-stone-700">41</span>
       </div>
     </div>
   );

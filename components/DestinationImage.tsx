@@ -5,7 +5,10 @@ interface DestinationImageProps {
   altText: string;
 }
 
-const DestinationImage: React.FC<DestinationImageProps> = ({ imageUrl, altText }) => {
+const DestinationImage: React.FC<DestinationImageProps> = ({
+  imageUrl,
+  altText,
+}) => {
   return (
     <div className="w-full h-48 sm:h-64 md:h-80">
       <img
