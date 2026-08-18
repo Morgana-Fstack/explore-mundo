@@ -13,12 +13,17 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ destinations, onSelectDestination, onShowAbout, onShowHome, onShowContact }) => {
   const [isDestinationsMenuOpen, setIsDestinationsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const menuRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node) && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      const isOutsideDesktopMenu = !menuRef.current || !menuRef.current.contains(target);
+      const isOutsideMobileMenu = !mobileMenuRef.current || !mobileMenuRef.current.contains(target);
+
+      if (isOutsideDesktopMenu && isOutsideMobileMenu) {
         setIsDestinationsMenuOpen(false);
       }
     };
@@ -51,7 +56,17 @@ const Header: React.FC<HeaderProps> = ({ destinations, onSelectDestination, onSh
     onSelectDestination(id);
     setIsDestinationsMenuOpen(false);
     setIsMobileMenuOpen(false);
+    setSearchQuery('');
   }
+
+  const normalizedQuery = searchQuery.trim().toLocaleLowerCase('pt-BR');
+  const searchResults = normalizedQuery
+    ? destinations.filter((destination) =>
+        `${destination.name} ${destination.location}`
+          .toLocaleLowerCase('pt-BR')
+          .includes(normalizedQuery)
+      )
+    : [];
 
   return (
     <header className="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-md">
@@ -101,12 +116,31 @@ const Header: React.FC<HeaderProps> = ({ destinations, onSelectDestination, onSh
             <div className="relative">
               <input
                 type="search"
-                placeholder="Pesquisa Rápida..."
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Pesquisar destino..."
+                aria-label="Pesquisar destino"
                 className="bg-stone-100 placeholder-stone-500 text-stone-900 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-orange-500 w-48 transition-all"
               />
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-stone-400">
                 <SearchIcon />
               </div>
+              {searchQuery && (
+                <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-md shadow-lg ring-1 ring-black/5 py-1 z-20">
+                  {searchResults.length > 0 ? searchResults.map((destination) => (
+                    <button
+                      key={destination.id}
+                      type="button"
+                      onClick={() => handleDestinationClick(destination.id)}
+                      className="block w-full text-left px-4 py-2 text-sm text-stone-700 hover:bg-stone-100"
+                    >
+                      {destination.name} — {destination.location}
+                    </button>
+                  )) : (
+                    <p className="px-4 py-2 text-sm text-stone-500">Nenhum destino encontrado.</p>
+                  )}
+                </div>
+              )}
             </div>
           </div>
           <div className="md:hidden">
@@ -155,12 +189,31 @@ const Header: React.FC<HeaderProps> = ({ destinations, onSelectDestination, onSh
             <div className="relative pt-2">
               <input
                 type="search"
-                placeholder="Pesquisa Rápida..."
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Pesquisar destino..."
+                aria-label="Pesquisar destino"
                 className="w-full bg-stone-100 placeholder-stone-500 text-stone-900 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
               <div className="absolute inset-y-0 left-0 top-2 pl-3 flex items-center pointer-events-none text-stone-400">
                 <SearchIcon />
               </div>
+              {searchQuery && (
+                <div className="mt-2 w-full bg-white rounded-md shadow-lg ring-1 ring-black/5 py-1">
+                  {searchResults.length > 0 ? searchResults.map((destination) => (
+                    <button
+                      key={destination.id}
+                      type="button"
+                      onClick={() => handleDestinationClick(destination.id)}
+                      className="block w-full text-left px-4 py-2 text-sm text-stone-700 hover:bg-stone-100"
+                    >
+                      {destination.name} — {destination.location}
+                    </button>
+                  )) : (
+                    <p className="px-4 py-2 text-sm text-stone-500">Nenhum destino encontrado.</p>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
