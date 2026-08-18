@@ -8,6 +8,12 @@ A responsive web application for discovering destinations, exploring attractions
 
 The project was developed in 2026 as a practical assignment for **DGT2812 — Mobile Application Development** at Universidade Estácio. The current implementation uses React and TypeScript.
 
+### Live demo
+
+[Open Explore Mundo on GitHub Pages](https://morgana-fstack.github.io/explore-mundo/)
+
+![Explore Mundo landing page](docs/explore-mundo-preview.jpg)
+
 ### Features
 
 - responsive presentation of Brazilian and international destinations;
@@ -52,6 +58,12 @@ npm run build
 Aplicação web responsiva para explorar destinos, conhecer atrações e consultar avaliações de viajantes.
 
 O projeto foi desenvolvido em 2026 como trabalho prático da disciplina **DGT2812 — Desenvolvimento de Aplicativos Móveis**, da Universidade Estácio. A implementação atual utiliza React e TypeScript.
+
+### Demonstração online
+
+[Acesse o Explore Mundo no GitHub Pages](https://morgana-fstack.github.io/explore-mundo/)
+
+![Tela inicial do Explore Mundo](docs/explore-mundo-preview.jpg)
 
 ### Funcionalidades
 
