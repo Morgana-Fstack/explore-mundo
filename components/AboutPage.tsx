@@ -9,8 +9,7 @@ const AboutPage: React.FC = () => {
         </h1>
         <div className="space-y-4 text-stone-700 leading-relaxed text-lg">
           <div className="p-4 bg-stone-50 rounded-lg">
-            <p><strong>Criado por:</strong> Morgana Petterle da cunha</p>
-            <p><strong>Idade:</strong> 34 anos</p>
+            <p><strong>Criado por:</strong> Morgana Petterle da Cunha</p>
             <p><strong>Localização:</strong> Curitiba, Paraná</p>
           </div>
           <div className="pt-4 mt-4 border-t border-stone-200">
@@ -19,11 +18,9 @@ const AboutPage: React.FC = () => {
               Este aplicativo foi criado como forma de trabalho prático para a disciplina:
             </p>
             <p className="font-semibold block mt-2 text-center p-3 bg-stone-100 rounded-md">
-              DGT2812 - Desenvolvimento de Aplicativos Móveis com Flutter
+              DGT2812 — Desenvolvimento de Aplicativos Móveis
             </p>
-            <p className="mt-4">
-              <strong>Tutor(a):</strong> Simone Gama
-            </p>
+            <p className="mt-4">A versão atual foi construída com React, TypeScript e Vite, com foco em responsividade e experiência de navegação.</p>
           </div>
         </div>
       </div>
