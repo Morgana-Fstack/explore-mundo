@@ -24,8 +24,8 @@ O projeto foi desenvolvido como trabalho prático da disciplina **DGT2812 — De
 Pré-requisito: Node.js 18 ou superior.
 
 ```bash
-git clone https://github.com/Morgana-Fstack/DGT2812-Desenvolvimento-de-Aplicativos-M-veis-com-Flutter.git
-cd DGT2812-Desenvolvimento-de-Aplicativos-M-veis-com-Flutter
+git clone https://github.com/Morgana-Fstack/explore-mundo.git
+cd explore-mundo
 npm install
 npm run dev
 ```
